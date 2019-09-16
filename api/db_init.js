@@ -1,19 +1,7 @@
 let fs = require('fs');
 let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+let ItemSchema = require('./mongoose_schema');
 
-let ItemSchema = new Schema(
-    {
-        id: Number,
-        img:
-            { data: Buffer, contentType: String, id: Number },
-        name: String,
-        author: String,
-        synopsis: String,
-        year: Number,
-        category: String
-    }
-);
 let Item = mongoose.model('Books',ItemSchema);
 
 mongoose.connect('mongodb://127.0.0.1:27017').then(() => {
