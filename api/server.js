@@ -17,4 +17,18 @@ app.get('/api/books/:category', (req, res) => {
     });
 });
 
+app.get('/api/covers/:id', function (req, res, next) {
+
+    Item.findOne({id: req.params.id}, function (err, item) {
+
+        if (err) return next(err);
+
+        res.contentType(item.img.contentType);
+
+        res.send(item.img.data);
+
+    });
+
+});
+
 app.listen(port, () => console.log(`Server listening on port ${port}`));
