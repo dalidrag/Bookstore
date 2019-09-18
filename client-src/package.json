@@ -10,10 +10,18 @@
   "author": "DD",
   "license": "ISC",
   "devDependencies": {
+    "@computerrock/babel-preset-react-app": "^2.4.2",
+    "@computerrock/eslint-config-base": "^1.8.1",
+    "@computerrock/eslint-config-react-app": "^1.8.1",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1",
-    "@computerrock/babel-preset-react-app": "^2.4.2"
+    "webpack-dev-server": "^3.8.1"
   }
 }
