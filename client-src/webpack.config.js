@@ -1,14 +1,31 @@
-module.exports = {
-    // 1
-    entry: './src/index.js',
-    // 2
-    output: {
-        path: __dirname + '/dist',
-        publicPath: '/',
-        filename: 'bundle.js'
-    },
-    // 3
-    devServer: {
-        contentBase: './dist'
+module.exports = env => {
+    process.env.NODE_ENV = env.NODE_ENV;
+
+    return {
+        mode: 'development',
+        // 1
+        entry: './src/index.js',
+        module: {
+            rules: [
+                {
+                    test: /\.(js)$/,
+                    exclude: /node_modules/,
+                    use: ['babel-loader']
+                }
+            ]
+        },
+        resolve: {
+            extensions: ['*', '.js']
+        },
+        // 2
+        output: {
+            path: __dirname + '/dist',
+            publicPath: '/',
+            filename: 'bundle.js'
+        },
+        // 3
+        devServer: {
+            contentBase: './dist'
+        },
     }
 };
