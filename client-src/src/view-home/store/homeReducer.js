@@ -11,6 +11,11 @@ const allBooksByCategoryReducer = (state = initialState, action) => {
                 ...state,
                 booksBucket: action.payload,
             };
+        case actionTypes.FETCH_ALL_BOOKS_ERROR:
+            return {
+                ...state,
+                error: 'Something went wrong.',
+            };
         default:
             return state;
     }
