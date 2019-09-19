@@ -15,7 +15,7 @@ module.exports = env => {
             ]
         },
         resolve: {
-            extensions: ['*', '.js']
+            extensions: ['*', '.js', '.jsx']
         },
         // 2
         output: {
