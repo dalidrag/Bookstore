@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
-const title = 'React with Webpack and Babel';
+import createStore from './store/createStore';
+
+import HomeViewContainer from './view-home/store/HomeViewContainer';
+
+
+const store = createStore();
+
 ReactDOM.render(
-    <div>{title}</div>,
+    (
+        <Provider store={store}>
+            <HomeViewContainer />
+        </Provider>
+    ),
     document.getElementById('app')
 );
