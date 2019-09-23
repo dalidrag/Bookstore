@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 import './CarouselSlide.css';
 
 class CarouselSlide extends Component {
-    constructor(props) {
-        super(props);
+    static propTypes = {
+        setCarousel: PropTypes.func,
+    };
 
-    }
-
-    componentWillMount() {
-
-    }
+    static defaultProps = {
+        setCarousel: null,
+    };
 
     componentDidMount() {
-
+        this.props.setCarousel();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -35,7 +34,7 @@ class CarouselSlide extends Component {
 
     render() {
         return (
-            <div className="bs-c-carousel__slide">
+            <div className="bs-c-carousel__slide js-carousel-slide">
                 {this.props.children}
             </div>
         );

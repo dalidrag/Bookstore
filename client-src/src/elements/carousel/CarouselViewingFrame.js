@@ -1,13 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, Children} from 'react';
 import PropTypes from 'prop-types';
 
-import "./Carousel.css";
+import './Carousel.css';
 
 class CarouselViewingFrame extends Component {
-    constructor(props) {
-        super(props);
+    static propTypes = {
+        setViewingFrameRef: PropTypes.func,
+        setCarousel: PropTypes.func,
+    };
 
-    }
+    static defaultProps = {
+        setViewingFrameRef: null,
+        setCarousel: null,
+    };
 
     componentWillMount() {
 
@@ -34,9 +39,16 @@ class CarouselViewingFrame extends Component {
     }
 
     render() {
+        const {setViewingFrameRef, setCarousel} = this.props;
+
+        const children = Children.map(this.props.children, child => (typeof child === 'string' ? child
+            : React.cloneElement(child, {
+                setCarousel: setCarousel,
+            })));
+
         return (
-            <div className="bs-c-carousel__viewing-frame">
-                {this.props.children}
+            <div className="bs-c-carousel__viewing-frame" ref={setViewingFrameRef}>
+                {children}
             </div>
         );
     }
