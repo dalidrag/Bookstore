@@ -1,7 +1,7 @@
 import actionTypes from './actionTypes';
 
 const initialState = {
-    booksBucket: 'No books',
+    booksBucket: [{id: 1, name: 'No books.'}],
 };
 
 const allBooksByCategoryReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const allBooksByCategoryReducer = (state = initialState, action) => {
         case actionTypes.FETCH_ALL_BOOKS_SUCCESS:
             return {
                 ...state,
-                booksBucket: action.payload,
+                booksBucket: action.books,
             };
         case actionTypes.FETCH_ALL_BOOKS_ERROR:
             return {

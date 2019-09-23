@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 class HomeView extends Component {
     static propTypes = {
         fetchAllBooksByCategory: PropTypes.func.isRequired,
-        allBooksByCategory: PropTypes.string,
+        allBooksByCategory: PropTypes.array,
     };
 
     static defaultProps = {
-        allBooksByCategory: 'No books.',
+        allBooksByCategory: [{id: 1, name: 'No books.'}],
     };
 
     componentDidMount() {
-        this.props.fetchAllBooksByCategory('All books by category.');
+        this.props.fetchAllBooksByCategory({category: 'Fiction'});
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -25,9 +25,16 @@ class HomeView extends Component {
     }
 
     render() {
+        const allBooks = this.props.allBooksByCategory.map(book =>
+            <div key={book.id}>
+                <p>{book.name}</p>
+                <img src={'http://localhost:3000/api/covers/' + book.id} alt="book cover" />
+            </div>
+        );
+
         return (
             <div>
-                {this.props.allBooksByCategory}
+                {allBooks}
             </div>
         );
     }

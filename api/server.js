@@ -1,5 +1,6 @@
 const express = require('express');
 let mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
@@ -8,6 +9,8 @@ let ItemSchema = require('./mongoose_schema');
 let Item = mongoose.model('Books', ItemSchema);
 
 mongoose.connect('mongodb://127.0.0.1:27017');
+
+app.use(cors());
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
