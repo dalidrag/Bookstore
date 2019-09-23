@@ -3,7 +3,7 @@ import {put, call} from 'redux-saga/effects';
 import actionTypes from './actionTypes';
 import {getBooksByCategory} from '../../api-service/apiMediaService';
 
-export function* getAllBooksByCategory({payload}) {
+export const getAllBooksByCategory = function* ({payload}) {
     try {
         const books = yield call(getBooksByCategory, payload.category);
         books.forEach(book => {
@@ -13,4 +13,4 @@ export function* getAllBooksByCategory({payload}) {
     } catch (error) {
         yield put({type: actionTypes.FETCH_ALL_BOOKS_ERROR, error});
     }
-}
+};

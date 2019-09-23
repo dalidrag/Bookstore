@@ -1,0 +1,4 @@
+.bs-c-carousel__viewing-frame {
+    display: flex;
+    flex-wrap: nowrap;
+}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+import Carousel from '../elements/carousel/Carousel';
 
 class HomeView extends Component {
     static propTypes = {
@@ -33,9 +34,9 @@ class HomeView extends Component {
         );
 
         return (
-            <div>
+            <Carousel>
                 {allBooks}
-            </div>
+            </Carousel>
         );
     }
 }

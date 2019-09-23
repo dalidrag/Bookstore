@@ -11,7 +11,17 @@ module.exports = env => {
                     test: /\.(js)$/,
                     exclude: /node_modules/,
                     use: ['babel-loader']
-                }
+                },
+                // css
+                {
+                    test: /\.(css|scss)$/,
+                    use: [
+                        'style-loader',
+                        {
+                            loader: 'css-loader'
+                        },
+                    ]
+                },
             ]
         },
         resolve: {
