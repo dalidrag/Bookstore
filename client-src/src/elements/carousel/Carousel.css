@@ -1,13 +1,19 @@
 .bs-c-carousel {
     width: 60%;
     height: 250px;
-
 }
 
 .bs-c-carousel__viewing-frame {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
+
+.bs-c-carousel__slide_tray {
     display: flex;
     flex-wrap: nowrap;
     user-select: none;
-    height: 100%;
     transition: 0.5s all;
+    height: 100%;
 }

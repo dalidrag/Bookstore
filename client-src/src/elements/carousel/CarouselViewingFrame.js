@@ -53,12 +53,10 @@ class CarouselViewingFrame extends Component {
         };
 
         return (
-            <div
-                className="bs-c-carousel__viewing-frame"
-                ref={setViewingFrameRef}
-                style={slideTrayStyle}
-            >
-                {children}
+            <div className="bs-c-carousel__viewing-frame" ref={setViewingFrameRef}>
+                <div className="bs-c-carousel__slide_tray" style={slideTrayStyle}>
+                    {children}
+                </div>
             </div>
         );
     }
