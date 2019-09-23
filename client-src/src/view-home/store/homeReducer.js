@@ -1,7 +1,7 @@
 import actionTypes from './actionTypes';
 
 const initialState = {
-    booksBucket: [{id: 1, name: 'No books.'}],
+    booksBucket: [{id: 0, name: 'No books.', category: 'No category.'}],
 };
 
 const allBooksByCategoryReducer = (state = initialState, action) => {
@@ -9,7 +9,9 @@ const allBooksByCategoryReducer = (state = initialState, action) => {
         case actionTypes.FETCH_ALL_BOOKS_SUCCESS:
             return {
                 ...state,
-                booksBucket: action.books,
+                booksBucket: state.booksBucket.concat(action.books).filter(book => {
+                    return book.id !== 0;
+                }),
             };
         case actionTypes.FETCH_ALL_BOOKS_ERROR:
             return {

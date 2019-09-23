@@ -24,7 +24,7 @@ app.get('/api/covers/:id', function (req, res, next) {
 
     Item.findOne({id: req.params.id}, function (err, item) {
 
-        if (err) return next(err);
+        if (err || !item) return next(err);
 
         res.contentType(item.img.contentType);
 

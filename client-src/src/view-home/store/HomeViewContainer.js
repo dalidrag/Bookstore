@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchAllBooksByCategory: payload => dispatch(homeViewActions.fetchAllBooksByCategory(payload)),
+        fetchAllBooksByCategory: () => dispatch(homeViewActions.fetchAllBooksByCategory()),
     };
 };
 
