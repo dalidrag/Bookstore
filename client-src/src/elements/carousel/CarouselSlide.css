@@ -1,0 +1,9 @@
+.bs-c-carousel__slide {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 5px;
+}
+.bs-c-carousel__slide > * {
+    height: 100%;
+    width: auto;
+}

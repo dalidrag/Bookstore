@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import Carousel from '../elements/carousel/Carousel';
+import CarouselSlide from '../elements/carousel/CarouselSlide';
 
 class HomeView extends Component {
     static propTypes = {
@@ -27,10 +28,9 @@ class HomeView extends Component {
 
     render() {
         const allBooks = this.props.allBooksByCategory.map(book =>
-            <div key={book.id}>
-                <p>{book.name}</p>
+            <CarouselSlide key={book.id}>
                 <img src={'http://localhost:3000/api/covers/' + book.id} alt="book cover" />
-            </div>
+            </CarouselSlide>
         );
 
         return (

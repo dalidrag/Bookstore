@@ -1,4 +1,12 @@
+.bs-c-carousel {
+    width: 60%;
+    height: 250px;
+}
+
 .bs-c-carousel__viewing-frame {
     display: flex;
     flex-wrap: nowrap;
+    overflow: hidden;
+    user-select: none;
+    height: 100%;
 }
