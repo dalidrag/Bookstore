@@ -7,11 +7,13 @@ class CarouselViewingFrame extends Component {
     static propTypes = {
         setViewingFrameRef: PropTypes.func,
         setCarousel: PropTypes.func,
+        slideTrayOffset: PropTypes.number,
     };
 
     static defaultProps = {
         setViewingFrameRef: null,
         setCarousel: null,
+        slideTrayOffset: 0,
     };
 
     componentWillMount() {
@@ -39,15 +41,23 @@ class CarouselViewingFrame extends Component {
     }
 
     render() {
-        const {setViewingFrameRef, setCarousel} = this.props;
+        const {setViewingFrameRef, setCarousel, slideTrayOffset} = this.props;
 
         const children = Children.map(this.props.children, child => (typeof child === 'string' ? child
             : React.cloneElement(child, {
                 setCarousel: setCarousel,
             })));
 
+        const slideTrayStyle = {
+            transform: `translateX(${slideTrayOffset}px)`,
+        };
+
         return (
-            <div className="bs-c-carousel__viewing-frame" ref={setViewingFrameRef}>
+            <div
+                className="bs-c-carousel__viewing-frame"
+                ref={setViewingFrameRef}
+                style={slideTrayStyle}
+            >
                 {children}
             </div>
         );

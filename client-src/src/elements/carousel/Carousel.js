@@ -120,14 +120,49 @@ class Carousel extends Component {
         }, []);
     };
 
+    /**
+     * Rotates carousel one page left
+     */
+    rotateCarouselLeft = () => {
+        const {carouselPages} = this.state;
+        if (carouselPages.length === 0 || this.state.currentPage === 0) return;
+
+        this.setState(state => ({
+            currentPage: state.currentPage - 1,
+            slideTrayOffset: carouselPages[state.currentPage - 1].x * -1,
+        }));
+    };
+
+    /**
+     * Rotates carousel one page right
+     */
+    rotateCarouselRight = () => {
+        const {carouselPages} = this.state;
+        if (carouselPages.length === 0 || this.state.currentPage === carouselPages.length - 1) return;
+
+        this.setState(state => ({
+            currentPage: state.currentPage + 1,
+            slideTrayOffset: carouselPages[state.currentPage + 1].x * -1,
+        }));
+    };
+
     render() {
         return (
             <div className="bs-c-carousel">
                 <CarouselPagination />
-                <CarouselViewingFrame setViewingFrameRef={this.setViewingFrameRef} setCarousel={this.setCarousel}>
+                <CarouselViewingFrame
+                    setViewingFrameRef={this.setViewingFrameRef}
+                    setCarousel={this.setCarousel}
+                    slideTrayOffset={this.state.slideTrayOffset}
+                >
                     {this.props.children}
                 </CarouselViewingFrame>
-                <CarouselControls />
+                <CarouselControls
+                    currentPage={this.state.currentPage}
+                    carouselPages={this.state.carouselPages}
+                    rotateCarouselLeft={this.rotateCarouselLeft}
+                    rotateCarouselRight={this.rotateCarouselRight}
+                />
             </div>
         );
     }
