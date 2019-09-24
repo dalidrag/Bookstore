@@ -33,6 +33,8 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "connected-react-router": "^6.5.2",
+    "history": "^4.10.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
