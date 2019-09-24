@@ -22,11 +22,6 @@ class Carousel extends Component {
         window.addEventListener('resize', this.setCarousel);
     }
 
-
-    componentWillReceiveProps(nextProps) {
-
-    }
-
     componentWillUpdate(nextProps, nextState) {
 
     }

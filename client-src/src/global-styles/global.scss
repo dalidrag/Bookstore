@@ -2,5 +2,6 @@ $max-content-width: 1024px;
 
 .bs-content-container {
   max-width: $max-content-width;
-  margin: 0 auto;
+  margin: 140px auto 0;
+  position: relative;
 }

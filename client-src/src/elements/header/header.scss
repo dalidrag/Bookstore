@@ -1,6 +1,19 @@
-.bs-c-header {
+@import "../../global-styles/global";
+
+$bs-header-gt-height: 100px;
+
+.bs-c-header-wrapper {
   padding: 10px 0;
   border-bottom: 1px solid lightgray;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  height: $bs-header-gt-height;
+  width: 100%;
+  z-index: 9990;
+  background-color: white;
+  max-width: $max-content-width;
 }
 
 .bs-c-header__logo {
