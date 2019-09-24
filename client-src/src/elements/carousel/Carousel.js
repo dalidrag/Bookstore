@@ -146,13 +146,14 @@ class Carousel extends Component {
 
     render() {
         return (
-            <div className="bs-c-carousel">
+            <div className="bs-c-carousel" role="application">
                 <CarouselPagination />
                 <CarouselViewingFrame
                     setViewingFrameRef={this.setViewingFrameRef}
                     setCarousel={this.setCarousel}
                     slideTrayOffset={this.state.slideTrayOffset}
                     slideTrayFirstIndex={this.state.slideTrayFirstIndex}
+                    frameRef={this.viewingFrameRef}
                 >
                     {this.props.children}
                 </CarouselViewingFrame>

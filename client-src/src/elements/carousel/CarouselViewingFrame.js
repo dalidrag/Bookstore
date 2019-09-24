@@ -47,6 +47,8 @@ class CarouselViewingFrame extends Component {
     }
 
     manageFocus = event => {
+        if (!this.props.frameRef.contains(document.activeElement)) return;
+
         switch (event.keyCode) {
             case 39: // right arrow
                 this.setState({focusedSlideIndex: this.state.focusedSlideIndex + 1});
@@ -76,7 +78,7 @@ class CarouselViewingFrame extends Component {
         };
 
         return (
-            <div className="bs-c-carousel__viewing-frame" ref={setViewingFrameRef} tabIndex="0">
+            <div className="bs-c-carousel__viewing-frame" ref={setViewingFrameRef} tabIndex="0" role="grid">
                 <div className="bs-c-carousel__slide_tray" style={slideTrayStyle}>
                     {children}
                 </div>
