@@ -3,7 +3,6 @@
 }
 
 .bs-c-carousel__viewing-frame {
-    width: 60%;
     height: 250px;
     overflow: hidden;
     position: relative;

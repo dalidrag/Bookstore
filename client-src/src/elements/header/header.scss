@@ -1,0 +1,22 @@
+.bs-c-header {
+  padding: 10px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.bs-c-header__logo {
+  height: 77px;
+  width: 200px;
+  background-image: url("./bookstore-logo.jpg");
+  background-size: 100%;
+}
+
+.bs-c-header__main-menu {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+
+  > * {
+    color: black;
+    text-decoration: none;
+  }
+}

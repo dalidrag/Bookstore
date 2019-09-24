@@ -20,7 +20,19 @@ module.exports = env => {
                         {
                             loader: 'css-loader'
                         },
+                        'resolve-url-loader',
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
                     ]
+                },
+                // assets
+                {
+                    test: /\.(svg|jpg|png|gif|svg|mp4|webm|eot|svg|ttf|woff|woff2)(\?.*)?$/,
+                    loader: 'url-loader',
                 },
             ]
         },
