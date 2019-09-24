@@ -8,12 +8,18 @@ class CarouselViewingFrame extends Component {
         setViewingFrameRef: PropTypes.func,
         setCarousel: PropTypes.func,
         slideTrayOffset: PropTypes.number,
+        slideTrayFirstIndex: PropTypes.number,
     };
 
     static defaultProps = {
         setViewingFrameRef: null,
         setCarousel: null,
         slideTrayOffset: 0,
+        slideTrayFirstIndex: 0,
+    };
+
+    state = {
+        focusedSlideIndex: -1,
     };
 
     componentWillMount() {
@@ -21,7 +27,7 @@ class CarouselViewingFrame extends Component {
     }
 
     componentDidMount() {
-
+        window.addEventListener('keydown', this.manageFocus);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -37,15 +43,32 @@ class CarouselViewingFrame extends Component {
     }
 
     componentWillUnmount() {
-
+        window.removeEventListener('keydown', this.manageFocus);
     }
 
-    render() {
-        const {setViewingFrameRef, setCarousel, slideTrayOffset} = this.props;
+    manageFocus = event => {
+        switch (event.keyCode) {
+            case 39: // right arrow
+                this.setState({focusedSlideIndex: this.state.focusedSlideIndex + 1});
+                break;
+            case 37: // left arrow
+                this.setState({focusedSlideIndex: this.state.focusedSlideIndex - 1});
+                break;
+            default:
+                return;
+        }
+    };
 
-        const children = Children.map(this.props.children, child => (typeof child === 'string' ? child
+    render() {
+        const {setViewingFrameRef, setCarousel, slideTrayOffset, slideTrayFirstIndex} = this.props;
+
+        console.log(this.state.focusedSlideIndex + slideTrayFirstIndex);
+
+        const children = Children.map(this.props.children, (child, index) => (typeof child === 'string' ? child
             : React.cloneElement(child, {
                 setCarousel: setCarousel,
+                focused: this.state.focusedSlideIndex > 0
+                    && (this.state.focusedSlideIndex + slideTrayFirstIndex === index),
             })));
 
         const slideTrayStyle = {
@@ -53,7 +76,7 @@ class CarouselViewingFrame extends Component {
         };
 
         return (
-            <div className="bs-c-carousel__viewing-frame" ref={setViewingFrameRef}>
+            <div className="bs-c-carousel__viewing-frame" ref={setViewingFrameRef} tabIndex="0">
                 <div className="bs-c-carousel__slide_tray" style={slideTrayStyle}>
                     {children}
                 </div>

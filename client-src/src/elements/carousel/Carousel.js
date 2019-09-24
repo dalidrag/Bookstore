@@ -36,6 +36,7 @@ class Carousel extends Component {
             carouselPages: [],
             slideTrayOffset: 0,
             currentPage: 0,
+            slideTrayFirstIndex: 0,
         });
     }
 
@@ -87,7 +88,7 @@ class Carousel extends Component {
             .reduce((slideTrayWidth, slideNodeRect) => slideTrayWidth + slideNodeRect.width, 0);
 
         return slideNodeRectList.reduce((carouselPages, slideNodeRect, index) => {
-            if (carouselPages.length === 0) carouselPages.push({id: 0, x: 0, slidesWidth: 0});
+            if (carouselPages.length === 0) carouselPages.push({id: 0, x: 0, slidesWidth: 0, firstIndex: 0});
 
             const page = carouselPages[carouselPages.length - 1];
 
@@ -98,6 +99,7 @@ class Carousel extends Component {
                     id: page.id + 1,
                     x: page.x + page.slidesWidth,
                     slidesWidth: slideNodeRect.width,
+                    firstIndex: index,
                 };
                 carouselPages.push(newPage);
             }
@@ -108,6 +110,7 @@ class Carousel extends Component {
                     id: lastPage.id,
                     x: slideTrayWidth - viewingFrameRect.width,
                     slidesWidth: lastPage.slidesWidth,
+                    firstIndex: index,
                 };
             }
 
@@ -149,6 +152,7 @@ class Carousel extends Component {
                     setViewingFrameRef={this.setViewingFrameRef}
                     setCarousel={this.setCarousel}
                     slideTrayOffset={this.state.slideTrayOffset}
+                    slideTrayFirstIndex={this.state.slideTrayFirstIndex}
                 >
                     {this.props.children}
                 </CarouselViewingFrame>

@@ -25,16 +25,20 @@ class CarouselSlide extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-
+        if (this.props.focused) {
+            this.slideRef.current.focus();
+        }
     }
 
     componentWillUnmount() {
 
     }
 
+    slideRef = React.createRef();
+
     render() {
         return (
-            <div className="bs-c-carousel__slide js-carousel-slide">
+            <div className="bs-c-carousel__slide js-carousel-slide" tabIndex="-1" ref={this.slideRef}>
                 {this.props.children}
             </div>
         );
