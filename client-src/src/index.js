@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {ConnectedRouter} from 'connected-react-router'
 import createStore, {history} from './store/createStore';
 import {rootSaga} from './store/rootSaga';
 
-import HomeViewContainer from './view-home/store/HomeViewContainer';
-import CategoryViewContainer from './view-category/store/CategoryViewContainer';
-import Header from './elements/header/header';
+import renderRoutes from './router/renderRoutes';
+import routes from './router/routes';
 import './global-styles/global.scss';
+import Header from './elements/header/header';
 
 
 const store = createStore();
@@ -22,8 +21,7 @@ ReactDOM.render(
                 <div className="bs-screen-container">
                     <div className="bs-content-container">
                         <Header />
-                        <Route path="/" exact component={HomeViewContainer} />
-                        <Route path="/category/" component={CategoryViewContainer} />
+                        {renderRoutes(routes)}
                     </div>
                 </div>
             </ConnectedRouter>

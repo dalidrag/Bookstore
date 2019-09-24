@@ -1,22 +1,17 @@
-import React from "react";
-import { Switch, Route } from "react-router";
+import React from 'react';
+import {Switch, Route} from 'react-router-dom';
 
 // TODO make it async? should wait for side effects to finish
-function renderRoutes(routes, extraProps = {}, switchProps = {}) {
+function renderRoutes(routes) {
     return routes ? (
-        <Switch {...switchProps}>
+        <Switch>
             {routes.map((route, i) => (
                 <Route
                     key={route.key || i}
                     path={route.path}
                     exact={route.exact}
-                    strict={route.strict}
                     render={props =>
-                        route.render ? (
-                            route.render({ ...props, ...extraProps, route: route })
-                        ) : (
-                            <route.component {...props} {...extraProps} route={route} />
-                        )
+                        <route.component {...props} route={route} />
                     }
                 />
             ))}
