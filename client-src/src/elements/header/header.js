@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 import './header.scss';
 
@@ -52,7 +53,7 @@ class Header extends Component {
                 <div className="bs-c-header js-sticky-header">
                     <div className="bs-c-header__logo" />
                     <nav className="bs-c-header__main-menu">
-                        <a href="#">Categories</a>
+                        <Link to="/category/">Categories</Link>
                         <a href="#">Favorites</a>
                         <a href="#">Profile</a>
                     </nav>

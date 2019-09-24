@@ -4,5 +4,6 @@ import * as watchers from './sagasWatchers';
 export function* rootSaga() {
     yield all([
         watchers.watchFetchAllBooksRequest(),
+        watchers.watchFetchBooksFromCategoryRequest(),
     ]);
 }
