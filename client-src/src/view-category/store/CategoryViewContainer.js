@@ -1,5 +1,4 @@
 import {connect} from 'react-redux';
-import * as categoryViewActions from './actions';
 import CategoryView from '../CategoryView';
 
 const mapStateToProps = state => {
@@ -8,15 +7,9 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchBooksFromCategory: category => dispatch(categoryViewActions.fetchBooksFromCategory(category)),
-    };
-};
-
 const CategoryViewContainer = connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(CategoryView);
 
 export default CategoryViewContainer;

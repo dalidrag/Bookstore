@@ -53,7 +53,7 @@ class Header extends Component {
                 <div className="bs-c-header js-sticky-header">
                     <div className="bs-c-header__logo" />
                     <nav className="bs-c-header__main-menu">
-                        <Link to="/category/">Categories</Link>
+                        <Link to="/category/Fiction">Categories</Link>
                         <a href="#">Favorites</a>
                         <a href="#">Profile</a>
                     </nav>

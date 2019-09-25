@@ -8,15 +8,9 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchAllBooksByCategory: () => dispatch(homeViewActions.fetchAllBooksByCategory()),
-    };
-};
-
 const HomeViewContainer = connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(HomeView);
 
 export default HomeViewContainer;

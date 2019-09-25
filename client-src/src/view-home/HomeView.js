@@ -7,7 +7,6 @@ import CarouselSlide from '../elements/carousel/CarouselSlide';
 
 class HomeView extends Component {
     static propTypes = {
-        fetchAllBooksByCategory: PropTypes.func.isRequired,
         allBooksByCategory: PropTypes.array,
     };
 
@@ -16,7 +15,7 @@ class HomeView extends Component {
     };
 
     componentDidMount() {
-        this.props.fetchAllBooksByCategory();
+
     }
 
     componentDidUpdate(prevProps, prevState) {

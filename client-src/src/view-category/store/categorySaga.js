@@ -3,9 +3,11 @@ import {put, call} from 'redux-saga/effects';
 import actionTypes from './actionTypes';
 import {getBooksByCategory} from '../../api-service/apiMediaService';
 
-export const getBooksFromCategory = function* ({category}) {
+export const getBooksFromCategory = function* ({payload}) {
     try {
-        const books = yield call(getBooksByCategory, category);
+        const {match} = payload;
+
+        const books = yield call(getBooksByCategory, match.params.category);
         books.forEach(book => {
             if (book) book.img = '';
         });

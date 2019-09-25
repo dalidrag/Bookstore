@@ -14,7 +14,7 @@ class CategoryView extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchBooksFromCategory('Fiction');
+
     }
 
     componentWillReceiveProps(nextProps) {
