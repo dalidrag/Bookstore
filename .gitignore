@@ -3,3 +3,4 @@
 node_modules
 workspace.xml
 ExerciseSitePlan.txt
+client-src/dist/bundle.js
