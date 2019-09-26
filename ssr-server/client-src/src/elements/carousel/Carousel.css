@@ -1,0 +1,18 @@
+.bs-c-carousel {
+  margin: 10px 20px;
+}
+
+.bs-c-carousel__viewing-frame {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+.bs-c-carousel__slide_tray {
+  display: flex;
+  flex-wrap: nowrap;
+  user-select: none;
+  transition: 0.5s all;
+  height: 100%;
+}

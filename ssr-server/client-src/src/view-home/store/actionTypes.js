@@ -1,0 +1,9 @@
+const actionTypes = {
+  // all books by category
+  FETCH_ALL_BOOKS: 'FETCH_ALL_BOOKS',
+  FETCH_ALL_BOOKS_REQUEST: 'FETCH_ALL_BOOKS_REQUEST',
+  FETCH_ALL_BOOKS_SUCCESS: 'FETCH_ALL_BOOKS_SUCCESS',
+  FETCH_ALL_BOOKS_ERROR: 'FETCH_ALL_BOOKS_ERROR'
+};
+
+export default actionTypes;

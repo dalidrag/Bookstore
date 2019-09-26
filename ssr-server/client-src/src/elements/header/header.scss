@@ -1,0 +1,65 @@
+@import '../../global-styles/global';
+
+$bs-header-gt-height: 100px;
+$bs-header-ls-height: 40px;
+
+.bs-c-header-wrapper {
+  padding: 10px 0;
+  border-bottom: 1px solid lightgray;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  height: $bs-header-gt-height;
+  width: 100%;
+  z-index: 9990;
+  background-color: white;
+  max-width: $max-content-width;
+
+  &.is-detached {
+    height: $bs-header-ls-height;
+  }
+}
+
+.bs-c-header {
+  .bs-c-header__logo {
+    height: 77px;
+    width: 200px;
+    background-image: url('./bookstore-logo.jpg');
+    background-size: 100%;
+  }
+
+  .bs-c-header__main-menu {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: 0.5s all;
+
+    > * {
+      color: black;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  }
+
+  &.is-detached {
+    .bs-c-header__logo {
+      height: 36.5px;
+      width: 100px;
+    }
+
+    .bs-c-header__main-menu {
+      left: 120px;
+      top: -25px;
+
+      > * {
+        color: black;
+        text-decoration: none;
+        font-size: 14px;
+      }
+    }
+  }
+}

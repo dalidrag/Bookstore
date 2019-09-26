@@ -1,0 +1,11 @@
+$max-content-width: 1024px;
+
+.bs-content-container {
+  max-width: $max-content-width;
+  margin: 140px auto 0;
+  position: relative;
+}
+
+*:focus {
+  border: 1px solid red;
+}
