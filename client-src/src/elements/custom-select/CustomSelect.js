@@ -27,12 +27,38 @@ class CustomSelect extends Component {
     this.setState(state => ({ isActive: !state.isActive }));
   };
 
+  getSelectedOption = (value, options = []) => {
+    if (options.length > 0) {
+      // selected option
+      const selectedOption = options.find(
+        option => option.props && option.props.value === value
+      );
+      if (selectedOption) {
+        return selectedOption;
+      }
+      // default option
+      const defaultOption = options.find(
+        option => option.props && option.props.isDefault
+      );
+      if (defaultOption) {
+        return defaultOption;
+      }
+      // first option
+      return options[0];
+    }
+  };
+
   render() {
     const { label, value, children, className, onChange } = this.props;
 
+    const options = React.Children.toArray(children);
+    const selectedOption = this.getSelectedOption(value, options);
+    const selectedValue =
+      selectedOption && selectedOption.props && selectedOption.props.value;
     const updatedChildren = React.Children.map(children, child =>
       React.cloneElement(child, {
-        onChange
+        onChange,
+        selectedValue
       })
     );
 

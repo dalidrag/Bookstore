@@ -33,9 +33,9 @@ class ProfileView extends Component {
         value={this.state.chosenCountry}
         onChange={this.putChosenCountry}
       >
-        <Option label="A">Click A</Option>
-        <Option label="B">Click B</Option>
-        <Option label="C">Click C</Option>
+        <Option value="A">Click A</Option>
+        <Option value="B">Click B</Option>
+        <Option value="C">Click C</Option>
       </CustomSelect>
     );
   }

@@ -34,17 +34,18 @@
     border-top: none;
   }
 
-  /*&--default {
-        cursor: auto;
-    }
+  &--default {
+    cursor: auto;
+  }
 
-    &--is-active {
-        color: map-get($colors, text-white);
+  &--is-active {
+    color: white;
 
-        // NAB
-        // background-color: map-get($colors, text);
-        background-color: map-get($colors, text-dark);
-
+    // NAB
+    // background-color: map-get($colors, text);
+    background-color: black;
+  }
+  /*
         @include media('touch-device') {
             // color: map-get($colors, text);
             // background-color: map-get($colors, text);
