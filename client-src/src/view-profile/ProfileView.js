@@ -28,7 +28,7 @@ class ProfileView extends Component {
   render() {
     return (
       <CustomSelect
-        label="Sort by"
+        label="Your Country"
         className="bs-c-select-widget-container"
         value={this.state.chosenCountry}
         onChange={this.putChosenCountry}

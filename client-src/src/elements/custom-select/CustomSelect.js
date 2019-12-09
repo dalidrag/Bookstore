@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./CustomSelect.scss";
+import { withOutsideClick } from "../../HOCs/withOutsideClick";
 
+@withOutsideClick
 class CustomSelect extends Component {
   static propTypes = {
     label: PropTypes.string,
@@ -22,6 +24,8 @@ class CustomSelect extends Component {
   state = {
     isActive: false
   };
+
+  clickOutsideRef = React.createRef();
 
   toggleDropDown = e => {
     this.setState(state => ({ isActive: !state.isActive }));
@@ -48,6 +52,27 @@ class CustomSelect extends Component {
     }
   };
 
+  componentDidMount() {
+    this.props.subscribeToClickOutside(
+      this.clickOutsideRef,
+      this.onClickOutside
+    );
+  }
+
+  componentWillUnmount() {
+    this.props.unsubscribeFromClickOutside(
+      this.clickOutsideRef,
+      this.onClickOutside
+    );
+  }
+
+  onClickOutside = () => {
+    this.setState({
+      isActive: false
+    });
+    return false;
+  };
+
   render() {
     const { label, value, children, className, onChange } = this.props;
 
@@ -65,6 +90,7 @@ class CustomSelect extends Component {
     return (
       <div
         onClick={this.toggleDropDown}
+        ref={this.clickOutsideRef}
         className={`bs-c-custom-select ${className || ""}`}
         tabIndex="0"
       >
