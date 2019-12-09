@@ -1,0 +1,182 @@
+// @import '../../styles/config';
+//@import '../../styles/config-nab';
+
+.vub-c-custom-select {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  font-size: 14px;
+  width: 100%;
+  padding-bottom: 10px;
+  outline: none;
+
+  .vub-c-subscription-checkout-view & {
+    padding: 0;
+  }
+
+  .vub-c-fast-checkout-view & {
+    padding: 0;
+  }
+
+  //@include media('touch-device') {
+  //    display: flex;
+  //    flex-direction: column;
+  //    position: relative;
+  //    font-size: 14px;
+  //    width: 100%;
+  //    margin: 0;
+  //
+  //    &:last-child {
+  //        margin-right: 0;
+  //    }
+  //
+  //    &--inline {
+  //        flex-direction: row;
+  //    }
+  //
+  //    .vub-c-fast-checkout-view__payment & {
+  //        min-width: 120px;
+  //        font-size: 12px;
+  //    }
+  //
+  //    .vub-c-subscription-checkout-view & {
+  //        min-width: 120px;
+  //        font-size: 12px;
+  //    }
+  //}
+
+  //@include media('touch-device', '>=small') {
+  //    .vub-c-fast-checkout-view__payment & {
+  //        font-size: 14px;
+  //    }
+  //
+  //    .vub-c-subscription-checkout-view & {
+  //        font-size: 14px;
+  //    }
+  //}
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  //@include media('>=small') {
+  //    margin-right: 10px;
+  //    min-width: 150px;
+  //    max-width: 250px;
+  //    width: auto;
+  //}
+
+  &--inline {
+    flex-direction: row;
+  }
+
+  &--first {
+    border-top: none;
+  }
+}
+
+.vub-c-custom-select__label {
+  text-transform: capitalize;
+  padding-bottom: 4px;
+  font-size: 12px;
+
+  // NAB
+  // color: map-get($colors, text);
+  //color: map-get($colors, text-dark);
+
+  // BAN
+}
+
+.vub-c-custom-select__field {
+  display: flex;
+  //border: 1px solid map-get($colors, text);
+  padding: 10px;
+  width: 100%;
+  align-items: center;
+  height: 28px;
+  //background-color: map-get($colors, background-ultra-light);
+  cursor: pointer;
+
+  // NAB
+  border-radius: 4px;
+
+  // BAN
+}
+
+.vub-c-custom-select__field-value {
+  width: 100%;
+  cursor: pointer;
+  padding-right: 2px;
+
+  // NAB
+  // color: map-get($colors, background-light);
+  //color: map-get($colors, text-dark);
+
+  // BAN
+}
+
+.vub-c-custom-select__icon {
+  //background-image: url('../../assets/icons/arrow-down.svg?fill=#{map-get($colors, text)}');
+  background-image: url("../../assets/icons/arrow-down.svg?fill=#{#b3b0c5}");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 16px;
+  height: 8px;
+  cursor: pointer;
+}
+
+.vub-c-custom-select__drop-down {
+  position: absolute;
+  max-height: 330px;
+  overflow: auto;
+
+  // NAB
+  // top: 55px;
+  top: 50px;
+
+  // BAN
+  left: 0;
+  flex-direction: column;
+  list-style-type: none;
+  min-width: 150px;
+  //z-index: map-get($z-index, drop-down);
+
+  // NAB
+  // border: 1px solid map-get($colors, text);
+  // background-color: map-get($colors, background-ultra-light);
+  background-color: #fff;
+  //color: map-get($colors, text-dark);
+  box-shadow: 0 1px 2px 0 rgba(51, 49, 71, 0.1),
+    0 0 12px 0 rgba(51, 49, 71, 0.05), 0 0 12px 0 rgba(51, 49, 71, 0.02),
+    0 8px 6px 6px rgba(51, 49, 71, 0.02);
+
+  // BAN
+  &--is-active {
+    display: flex;
+  }
+
+  .vub-c-payment & {
+    top: 35px;
+  }
+}
+
+.vub-c-custom-select__drop-down-touch-device-wrapper {
+  display: block;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  user-select: none;
+  //z-index: map-get($z-index, pop-up);
+
+  //@include media('>=large') {
+  //    display: none;
+  //}
+  //
+  //@include media('touch-device') {
+  //    display: block;
+  //}
+}
