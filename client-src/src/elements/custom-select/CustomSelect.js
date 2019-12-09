@@ -27,8 +27,40 @@ class CustomSelect extends Component {
 
   clickOutsideRef = React.createRef();
 
+  arrayOfOptionsRefs = [];
+
+  setOptionRef = element => {
+    if (element !== null) {
+      this.arrayOfOptionsRefs.push(element);
+    }
+  };
+
+  clearOptionsRefs = () => {
+    this.arrayOfOptionsRefs = [];
+  };
+
+  currentOptionIndex = 0;
+
+  handleOptionsOnMouseOver = (e, index) => {
+    this.arrayOfOptionsRefs[index].focus();
+    if (index !== this.currentOptionIndex) {
+      this.arrayOfOptionsRefs[this.currentOptionIndex].blur();
+      this.currentOptionIndex = index;
+    }
+  };
+
   toggleDropDown = e => {
-    this.setState(state => ({ isActive: !state.isActive }));
+    this.setState(
+      state => ({ isActive: !state.isActive }),
+      () => {
+        if (this.state.isActive) {
+          this.arrayOfOptionsRefs[this.currentOptionIndex].focus();
+          return;
+        }
+        this.clearOptionsRefs();
+        this.clickOutsideRef.current.focus();
+      }
+    );
   };
 
   getSelectedOption = (value, options = []) => {
@@ -80,10 +112,13 @@ class CustomSelect extends Component {
     const selectedOption = this.getSelectedOption(value, options);
     const selectedValue =
       selectedOption && selectedOption.props && selectedOption.props.value;
-    const updatedChildren = React.Children.map(children, child =>
+    const updatedChildren = React.Children.map(children, (child, index) =>
       React.cloneElement(child, {
         onChange,
-        selectedValue
+        selectedValue,
+        setOptionRef: this.setOptionRef,
+        handleOptionsOnMouseOver: this.handleOptionsOnMouseOver,
+        index
       })
     );
 

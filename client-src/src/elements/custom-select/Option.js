@@ -8,7 +8,10 @@ const Option = ({
   value,
   className,
   onChange,
-  selectedValue
+  selectedValue,
+  setOptionRef,
+  index,
+  handleOptionsOnMouseOver
 }) => {
   const optionValue = value || label;
   const isOptionSelected = selectedValue === optionValue;
@@ -19,6 +22,12 @@ const Option = ({
     }
   };
 
+  const handleMouseOver = e => {
+    if (typeof handleOptionsOnMouseOver === "function") {
+      handleOptionsOnMouseOver(e, index);
+    }
+  };
+
   return (
     <li
       tabIndex="0"
@@ -26,6 +35,8 @@ const Option = ({
         isOptionSelected ? "bs-c-custom-select-item--is-active" : ""
       } ${className || ""}`}
       onClick={handleClick}
+      ref={setOptionRef}
+      onMouseOver={handleMouseOver}
     >
       {children || label}
     </li>
