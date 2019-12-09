@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./CustomSelect.scss";
-import { withOutsideClick } from "../../HOCs/withOutsideClick";
+import { withOutsideClick } from "../../HOCs/outside-click/withOutsideClick";
 
 @withOutsideClick
 class CustomSelect extends Component {
@@ -99,9 +99,12 @@ class CustomSelect extends Component {
   }
 
   onClickOutside = () => {
-    this.setState({
-      isActive: false
-    });
+    this.setState(
+      {
+        isActive: false
+      },
+      () => this.clearOptionsRefs()
+    );
     return false;
   };
 

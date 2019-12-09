@@ -9,7 +9,7 @@ import renderRoutes from "./router/renderRoutes";
 import routes from "./router/routes";
 import "./global-styles/global.scss";
 import Header from "./elements/header/header";
-import OutsideClickProvider from "./HOCs/OutsideClickProvider";
+import OutsideClickProvider from "./HOCs/outside-click/OutsideClickProvider";
 
 const store = createStore();
 store.runSaga(rootSaga);
