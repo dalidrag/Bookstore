@@ -1,0 +1,106 @@
+// @import '../../styles/config';
+//@import '../../styles/config-nab';
+
+.bs-c-custom-select-item {
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-top: 1px solid rgba(51, 61, 71, 0.1);
+  font-size: 14px;
+  outline: none;
+
+  // NAB
+  // color: map-get($colors, text);
+  color: #2b2c42;
+
+  // BAN
+  /*&:focus {
+        color: map-get($colors, text-white);
+        background-color: map-get($colors, text);
+
+        @include media('touch-device') {
+            background-color: map-get($colors, white);
+
+            // NAB
+            // color: map-get($colors, text);
+            color: map-get($colors, text-dark);
+
+            // BAN
+        }
+    }*/
+
+  &:first-child {
+    border-top: none;
+  }
+
+  /*&--default {
+        cursor: auto;
+    }
+
+    &--is-active {
+        color: map-get($colors, text-white);
+
+        // NAB
+        // background-color: map-get($colors, text);
+        background-color: map-get($colors, text-dark);
+
+        @include media('touch-device') {
+            // color: map-get($colors, text);
+            // background-color: map-get($colors, text);
+            color: map-get($colors, text-dark);
+            background-color: map-get($colors, background-light);
+        }
+
+        // BAN
+    }
+
+    &--is-disabled {
+        color: map-get($colors, text-dark);
+        cursor: auto;
+        opacity: 0.2;
+
+        &:hover {
+            color: map-get($colors, text-dark);
+        }
+
+        &:focus {
+            color: map-get($colors, text-dark);
+            background-color: #fff;
+
+            // NAB
+            @include media('touch-device') {
+                // color: map-get($colors, text);
+                // background-color: map-get($colors, background-light);
+                color: map-get($colors, text-dark);
+            }
+
+            // BAN
+        }
+
+        @include media('touch-device') {
+            &:first-child {
+                color: #fff;
+                opacity: 1;
+
+                // NAB
+                // background-color: map-get($colors, text);
+                background-color: map-get($colors, text-dark);
+
+                // BAN
+            }
+        }
+    }
+
+    @include media('touch-device') {
+        padding: 20px;
+    }*/
+
+  /*.vub-c-fast-checkout-view & {
+        padding: 10px 20px;
+    }
+
+    .vub-c-subscription-checkout-view & {
+        padding: 10px 20px;
+    }*/
+}

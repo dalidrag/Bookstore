@@ -29,16 +29,16 @@ class CustomSelect extends Component {
     return (
       <div
         onClick={this.toggleDropDown}
-        className={`vub-c-custom-select ${className || ""}`}
+        className={`bs-c-custom-select ${className || ""}`}
         tabIndex="0"
       >
-        {label && <label className="vub-c-custom-select__label">{label}</label>}
-        <div className="vub-c-custom-select__field">
-          <span className="vub-c-custom-select__field-value">Select field</span>
-          <div className="vub-c-custom-select__icon" />
+        {label && <label className="bs-c-custom-select__label">{label}</label>}
+        <div className="bs-c-custom-select__field">
+          <span className="bs-c-custom-select__field-value">Select field</span>
+          <div className="bs-c-custom-select__icon" />
         </div>
         {this.state.isActive && (
-          <ul className="vub-c-custom-select__drop-down" tabIndex="0">
+          <ul className="bs-c-custom-select__drop-down" tabIndex="0">
             {children}
           </ul>
         )}

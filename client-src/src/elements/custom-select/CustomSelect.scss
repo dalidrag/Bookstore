@@ -1,7 +1,7 @@
 // @import '../../styles/config';
 //@import '../../styles/config-nab';
 
-.vub-c-custom-select {
+.bs-c-custom-select {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -11,11 +11,11 @@
   padding-bottom: 10px;
   outline: none;
 
-  .vub-c-subscription-checkout-view & {
+  .bs-c-subscription-checkout-view & {
     padding: 0;
   }
 
-  .vub-c-fast-checkout-view & {
+  .bs-c-fast-checkout-view & {
     padding: 0;
   }
 
@@ -35,23 +35,23 @@
   //        flex-direction: row;
   //    }
   //
-  //    .vub-c-fast-checkout-view__payment & {
+  //    .bs-c-fast-checkout-view__payment & {
   //        min-width: 120px;
   //        font-size: 12px;
   //    }
   //
-  //    .vub-c-subscription-checkout-view & {
+  //    .bs-c-subscription-checkout-view & {
   //        min-width: 120px;
   //        font-size: 12px;
   //    }
   //}
 
   //@include media('touch-device', '>=small') {
-  //    .vub-c-fast-checkout-view__payment & {
+  //    .bs-c-fast-checkout-view__payment & {
   //        font-size: 14px;
   //    }
   //
-  //    .vub-c-subscription-checkout-view & {
+  //    .bs-c-subscription-checkout-view & {
   //        font-size: 14px;
   //    }
   //}
@@ -76,7 +76,7 @@
   }
 }
 
-.vub-c-custom-select__label {
+.bs-c-custom-select__label {
   text-transform: capitalize;
   padding-bottom: 4px;
   font-size: 12px;
@@ -88,7 +88,7 @@
   // BAN
 }
 
-.vub-c-custom-select__field {
+.bs-c-custom-select__field {
   display: flex;
   //border: 1px solid map-get($colors, text);
   padding: 10px;
@@ -104,7 +104,7 @@
   // BAN
 }
 
-.vub-c-custom-select__field-value {
+.bs-c-custom-select__field-value {
   width: 100%;
   cursor: pointer;
   padding-right: 2px;
@@ -116,7 +116,7 @@
   // BAN
 }
 
-.vub-c-custom-select__icon {
+.bs-c-custom-select__icon {
   //background-image: url('../../assets/icons/arrow-down.svg?fill=#{map-get($colors, text)}');
   background-image: url("../../assets/icons/arrow-down.svg?fill=#{#b3b0c5}");
   background-repeat: no-repeat;
@@ -127,7 +127,7 @@
   cursor: pointer;
 }
 
-.vub-c-custom-select__drop-down {
+.bs-c-custom-select__drop-down {
   position: absolute;
   max-height: 330px;
   overflow: auto;
@@ -157,12 +157,12 @@
     display: flex;
   }
 
-  .vub-c-payment & {
+  .bs-c-payment & {
     top: 35px;
   }
 }
 
-.vub-c-custom-select__drop-down-touch-device-wrapper {
+.bs-c-custom-select__drop-down-touch-device-wrapper {
   display: block;
   position: fixed;
   top: 90px;
