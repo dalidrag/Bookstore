@@ -49,6 +49,40 @@ class CustomSelect extends Component {
     }
   };
 
+  handleOptionsOnKeyDown = (e, index, value) => {
+    e.preventDefault();
+    const len = this.arrayOfOptionsRefs.length - 1;
+    switch (e.key) {
+      case "Enter":
+      case " ":
+        this.toggleDropDown();
+        this.props.onChange(value);
+        break;
+      case "Escape":
+        this.toggleDropDown();
+        this.currentOptionIndex = 0;
+        break;
+      case "ArrowUp":
+        if (index > 0) {
+          let nextIndex = index - 1;
+          this.arrayOfOptionsRefs[nextIndex].focus();
+          this.currentOptionIndex = nextIndex;
+          this.arrayOfOptionsRefs[index].blur();
+        }
+        break;
+      case "ArrowDown":
+        if (len > index) {
+          let previousIndex = index + 1;
+          this.arrayOfOptionsRefs[previousIndex].focus();
+          this.arrayOfOptionsRefs[this.currentOptionIndex].blur();
+          this.currentOptionIndex = previousIndex;
+        }
+        break;
+      default:
+        return;
+    }
+  };
+
   toggleDropDown = e => {
     this.setState(
       state => ({ isActive: !state.isActive }),
@@ -121,7 +155,8 @@ class CustomSelect extends Component {
         selectedValue,
         setOptionRef: this.setOptionRef,
         handleOptionsOnMouseOver: this.handleOptionsOnMouseOver,
-        index
+        index,
+        handleOptionsOnKeyDown: this.handleOptionsOnKeyDown
       })
     );
 

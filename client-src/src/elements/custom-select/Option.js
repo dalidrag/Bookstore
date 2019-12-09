@@ -11,7 +11,8 @@ const Option = ({
   selectedValue,
   setOptionRef,
   index,
-  handleOptionsOnMouseOver
+  handleOptionsOnMouseOver,
+  handleOptionsOnKeyDown
 }) => {
   const optionValue = value || label;
   const isOptionSelected = selectedValue === optionValue;
@@ -28,6 +29,12 @@ const Option = ({
     }
   };
 
+  const handleKeyDown = e => {
+    if (typeof handleOptionsOnKeyDown === "function") {
+      handleOptionsOnKeyDown(e, index, optionValue);
+    }
+  };
+
   return (
     <li
       tabIndex="0"
@@ -37,6 +44,7 @@ const Option = ({
       onClick={handleClick}
       ref={setOptionRef}
       onMouseOver={handleMouseOver}
+      onKeyDown={handleKeyDown}
     >
       {children || label}
     </li>
