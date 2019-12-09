@@ -9,6 +9,10 @@ class ProfileView extends Component {
     super(props);
   }
 
+  state = {
+    chosenCountry: "Choose country"
+  };
+
   componentDidMount() {}
 
   componentDidUpdate(prevProps, prevState) {}
@@ -17,7 +21,11 @@ class ProfileView extends Component {
 
   render() {
     return (
-      <CustomSelect label="Sort by" className="bs-c-select-widget-container">
+      <CustomSelect
+        label="Sort by"
+        className="bs-c-select-widget-container"
+        value={this.state.chosenCountry}
+      >
         <Option>Click A</Option>
         <Option>Click B</Option>
         <Option>Click C</Option>

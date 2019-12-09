@@ -6,13 +6,15 @@ class CustomSelect extends Component {
   static propTypes = {
     label: PropTypes.string,
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
+    value: PropTypes.string
   };
 
   static defaultProps = {
     label: null,
     className: null,
-    children: null
+    children: null,
+    value: null
   };
 
   state = {
@@ -24,7 +26,7 @@ class CustomSelect extends Component {
   };
 
   render() {
-    const { label, children, className } = this.props;
+    const { label, value, children, className } = this.props;
 
     return (
       <div
@@ -34,7 +36,7 @@ class CustomSelect extends Component {
       >
         {label && <label className="bs-c-custom-select__label">{label}</label>}
         <div className="bs-c-custom-select__field">
-          <span className="bs-c-custom-select__field-value">Select field</span>
+          <span className="bs-c-custom-select__field-value">{value}</span>
           <div className="bs-c-custom-select__icon" />
         </div>
         {this.state.isActive && (
