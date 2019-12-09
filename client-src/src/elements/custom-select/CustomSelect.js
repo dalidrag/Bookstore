@@ -7,14 +7,16 @@ class CustomSelect extends Component {
     label: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
-    value: PropTypes.string
+    value: PropTypes.string,
+    onChange: PropTypes.func
   };
 
   static defaultProps = {
     label: null,
     className: null,
     children: null,
-    value: null
+    value: null,
+    onChange: null
   };
 
   state = {
@@ -26,7 +28,13 @@ class CustomSelect extends Component {
   };
 
   render() {
-    const { label, value, children, className } = this.props;
+    const { label, value, children, className, onChange } = this.props;
+
+    const updatedChildren = React.Children.map(children, child =>
+      React.cloneElement(child, {
+        onChange
+      })
+    );
 
     return (
       <div
@@ -41,7 +49,7 @@ class CustomSelect extends Component {
         </div>
         {this.state.isActive && (
           <ul className="bs-c-custom-select__drop-down" tabIndex="0">
-            {children}
+            {updatedChildren}
           </ul>
         )}
       </div>

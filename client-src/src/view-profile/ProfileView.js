@@ -19,16 +19,23 @@ class ProfileView extends Component {
 
   componentWillUnmount() {}
 
+  putChosenCountry = value => {
+    this.setState({
+      chosenCountry: value
+    });
+  };
+
   render() {
     return (
       <CustomSelect
         label="Sort by"
         className="bs-c-select-widget-container"
         value={this.state.chosenCountry}
+        onChange={this.putChosenCountry}
       >
-        <Option>Click A</Option>
-        <Option>Click B</Option>
-        <Option>Click C</Option>
+        <Option label="A">Click A</Option>
+        <Option label="B">Click B</Option>
+        <Option label="C">Click C</Option>
       </CustomSelect>
     );
   }
